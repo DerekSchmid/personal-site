@@ -1,7 +1,15 @@
-<h1>Testing 2</h1>
-<div class="container" fxLayout="row" fxLayout.lt-lg="column" fxLayoutGap="20px" fxLayoutAlign="start stretch">
-  <button mat-button fxFlex="20%" class="button red">Test</button>
-  <button mat-button fxFlex="20%" class="button yellow">Test</button>
-  <button mat-button fxFlex="20%" class="button green">Test</button>
-  <button mat-button fxFlex="20%" class="button blue">Test</button>
-</div>
+<mat-sidenav-container class="container">
+  <mat-sidenav></mat-sidenav>
+  <mat-sidenav-content color="accent">
+    <mat-toolbar color="primary">
+      <div class="w-100"
+           fxLayout="row"
+           fxLayoutAlign="center">
+        <h1 fxFlexAlign="center">Derek's Personal Website</h1>
+      </div>
+    </mat-toolbar>
+    <div class="router">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

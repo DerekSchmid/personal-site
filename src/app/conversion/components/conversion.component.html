@@ -1,0 +1,53 @@
+<form [formGroup]="form"
+      class="w-100"
+      (ngSubmit)="handleSubmit()">
+
+  <div class="w-100"
+       fxLayout="row"
+       fxLayout.lt-md="column"
+       fxLayoutGap="20px"
+       fxLayoutAlign="start stretch">
+    <mat-form-field fxFlex="1 grow">
+      <input matInput
+             tabindex="1"
+             formControlName="distance"
+             placeholder="Distance"
+             type="number"
+             required />
+    </mat-form-field>
+
+    <mat-form-field fxFlex="1 grow">
+      <mat-select matInput
+                  tabindex="2"
+                  formControlName="units"
+                  placeholder="Units"
+                  required>
+        <mat-option [value]="'mi'">mi</mat-option>
+        <mat-option [value]="'km'">km</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field fxFlex="1 grow">
+      <input matInput
+             tabindex="3"
+             formControlName="minutes"
+             placeholder="Minutes"
+             type="number"
+             required
+             pattern="[0-9]*" />
+    </mat-form-field>
+
+    <mat-form-field fxFlex="1 grow">
+      <input matInput
+             tabindex="4"
+             formControlName="seconds"
+             placeholder="Seconds"
+             type="number"
+             pattern="[0-9]*" />
+    </mat-form-field>
+  </div>
+
+  <button mat-raised-button
+          color="accent"
+          type="submit">Submit</button>
+</form>
