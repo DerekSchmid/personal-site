@@ -3,11 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: 'home',
+    loadChildren: './home/home.module#HomeModule',
+  },
+  {
     path: 'conversion',
     loadChildren: './conversion/conversion.module#ConversionModule',
   },
-  { path: '', redirectTo: '', pathMatch: 'full' },
-  { path: '**', redirectTo: '', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];
 
 @NgModule({

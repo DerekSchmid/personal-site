@@ -1,6 +1,6 @@
 {
-  "name": "Derek Schmid Personal Site",
-  "short_name": "DSPS",
+  "name": "Derek Schmid Dev Site",
+  "short_name": "DKS Dev",
   "description": "A site for testing Angular",
   "icons": [
     {
@@ -34,7 +34,7 @@
       "type": "image/png"
     }
   ],
-  "start_url": "/",
+  "start_url": "/home",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#673ab7"

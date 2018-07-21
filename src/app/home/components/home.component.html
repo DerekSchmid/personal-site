@@ -1,0 +1,23 @@
+<mat-card ngClass.gt-sm="w-50"
+          class="card">
+  <div fxLayout="column"
+       fxLayoutGap="0px">
+
+    <p>The PWA serves as a development platform for testing technology.</p>
+    <p>Choose a button below for different programs, or select from menu.</p>
+
+    <div fxLayout="row wrap"
+         fxLayout.lt-md="column"
+         fxLayoutGap="10px"
+         fxLayoutAlign="start start"
+         class="w-50 button-container">
+
+      <a [routerLink]="['../conversion']">
+        <button mat-button
+                mat-raised-button
+                color="accent">Run Times</button>
+      </a>
+
+    </div>
+  </div>
+</mat-card>

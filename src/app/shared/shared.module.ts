@@ -3,6 +3,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   MatButtonModule,
+  MatCardModule,
   MatIconModule,
   MatInputModule,
   MatOptionModule,
@@ -28,6 +29,7 @@ import {
     MatOptionModule,
     MatTableModule,
     MatSortModule,
+    MatCardModule,
   ],
   providers: [],
 })
