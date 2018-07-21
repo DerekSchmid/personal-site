@@ -10,7 +10,7 @@ del %projectPath%*.css
 del %projectPath%3rdpartylicenses.txt
 
 xcopy /s/y %distPath% %projectPath%
-xcopy /s/y %distPath%\index.html %projectPath%404.html
+echo f | xcopy /f/y %distPath%\index.html %projectPath%404.html
 
 cd %projectPath%
 
