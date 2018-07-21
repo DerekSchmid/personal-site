@@ -6,8 +6,8 @@ const routes: Routes = [
     path: 'conversion',
     loadChildren: './conversion/conversion.module#ConversionModule',
   },
-  { path: '', redirectTo: 'conversion', pathMatch: 'full' },
-  { path: '**', redirectTo: 'conversion', pathMatch: 'full' },
+  { path: '', redirectTo: '', pathMatch: 'full' },
+  { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
 @NgModule({

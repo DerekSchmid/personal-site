@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSort, MatTableDataSource } from '@angular/material';
 
+import { DataService } from '../../shared/services/data.service';
 import { Result } from '../models/result';
 
 @Component({
@@ -20,17 +21,19 @@ export class ConversionComponent implements OnInit {
 
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private fb: FormBuilder) {
+  constructor(public data: DataService, private fb: FormBuilder) {
     this.dataSource = new MatTableDataSource<Result>();
-  }
 
-  ngOnInit(): void {
     this.form = this.fb.group({
       distance: [''],
       units: ['mi', Validators.required],
       minutes: ['', Validators.required],
       seconds: ['', [Validators.min(0), Validators.max(60)]],
     });
+  }
+
+  ngOnInit(): void {
+    this.data.setTitle('Running Conversion');
   }
 
   handleSubmit(): void {

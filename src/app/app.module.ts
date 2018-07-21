@@ -6,6 +6,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment.prod';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DataService } from './shared/services/data.service';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
@@ -19,7 +20,7 @@ import { SharedModule } from './shared/shared.module';
       ? ServiceWorkerModule.register('ngsw-worker.js')
       : [],
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

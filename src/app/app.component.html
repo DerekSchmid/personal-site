@@ -1,11 +1,43 @@
 <mat-sidenav-container class="container">
-  <mat-sidenav></mat-sidenav>
-  <mat-sidenav-content color="accent">
+  <mat-sidenav #sidenav
+               color="accent"
+               mode="over"
+               ngClass="w-20"
+               ngClass.lt-md="w-50">
+    <div class="w-100"
+         fxLayout="column"
+         fxLayoutAlign="start center"
+         fxLayoutGap="5px">
+
+      <a class="w-100"
+         [routerLink]="['/']"
+         (click)="sidenav.toggle(); data.setTitle('Dev Site')">
+        <button class="w-100"
+                mat-button
+                mat-raised-button
+                color="accent">Home</button>
+      </a>
+
+      <a class="w-100"
+         [routerLink]="['/conversion']"
+         (click)="sidenav.toggle()">
+        <button class="w-100"
+                mat-button
+                mat-raised-button
+                color="accent">Run Times</button>
+      </a>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content class="sidenav-content">
     <mat-toolbar color="primary">
       <div class="w-100"
            fxLayout="row"
-           fxLayoutAlign="center">
-        <h1 fxFlexAlign="center">Derek's Personal Website</h1>
+           fxLayoutAlign="space-between center">
+        <mat-icon fxFlexAlign="center"
+                  class="menu"
+                  (click)="sidenav.toggle()">menu</mat-icon>
+        <h1 fxFlexAlign="center">{{title}}</h1>
+        <div></div>
       </div>
     </mat-toolbar>
     <div class="router">

@@ -3,10 +3,31 @@
   width: 100%;
 }
 
-mat-icon {
-  font-size: 8vh !important;
+.sidenav-content {
+  min-height: 100vh;
+}
+
+.menu {
+  cursor: pointer;
+  &.mat-icon {
+    font-size: 6vh !important;
+    height: 6vh !important;
+    width: 6vh !important;
+  }
 }
 
 .router {
   margin: 10px;
+}
+
+.mat-sidenav {
+  & a {
+    height: 10vh !important;
+
+    & button {
+      height: 10vh !important;
+      font-size: 4vh;
+      border-radius: 0;
+    }
+  }
 }
