@@ -14,7 +14,8 @@
                tabindex="1"
                formControlName="distance"
                placeholder="Distance"
-               type="number" />
+               type="number"
+               required />
       </mat-form-field>
 
       <mat-form-field fxFlex="1 grow">
@@ -51,7 +52,8 @@
     <button mat-button
             mat-raised-button
             color="accent"
-            type="submit">Calculate</button>
+            type="submit"
+            [disabled]="!form.valid">Calculate</button>
   </form>
 
   <mat-table #table
@@ -68,7 +70,7 @@
     <ng-container matColumnDef="time">
       <mat-header-cell *matHeaderCellDef
                        mat-sort-header>Time</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.minutes}}:{{element.seconds}}</mat-cell>
+      <mat-cell *matCellDef="let element">{{getMinuteDisplay(element)}}:{{getSecondDisplay(element)}}</mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

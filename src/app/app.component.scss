@@ -16,11 +16,17 @@
   }
 }
 
+.drawer-header {
+  padding-left: 16px;
+  height: 64px;
+}
+
 .router {
   margin: 10px;
 }
 
 .mat-sidenav {
+  // background: $primary;
   & a {
     height: 10vh !important;
 
@@ -28,6 +34,28 @@
       height: 10vh !important;
       font-size: 4vh;
       border-radius: 0;
+    }
+  }
+}
+
+.menu-button-container {
+  // margin-top: 20px;
+  & > a {
+    width: 100%;
+
+    & > button {
+      cursor: pointer;
+      border: none;
+      // border-bottom: 1px solid black;
+      text-align: start;
+      padding-left: 16px;
+      opacity: 0.8;
+
+      &:active,
+      &:hover {
+        border: none !important;
+        opacity: 1;
+      }
     }
   }
 }

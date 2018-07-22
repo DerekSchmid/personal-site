@@ -15,6 +15,23 @@ export class ConversionComponent implements OnInit {
   results: Result[];
   form: FormGroup;
   displayedColumns: string[] = ['distance', 'time'];
+  units: string;
+
+  get distance(): number {
+    return this.form.controls.distance.value;
+  }
+
+  get minutes(): number {
+    return this.form.controls.minutes.value;
+  }
+
+  get seconds(): number {
+    return this.form.controls.seconds.value;
+  }
+
+  get totalSeconds(): number {
+    return this.minutes * 60 + this.seconds;
+  }
 
   kmDistances: number[] = [1, 5, 8, 10, 15, 20, 40, 50];
   miDistance: number[] = [1, 2, 4, 5, 8, 10, 13.1, 15, 20, 26.2];
@@ -25,9 +42,9 @@ export class ConversionComponent implements OnInit {
     this.dataSource = new MatTableDataSource<Result>();
 
     this.form = this.fb.group({
-      distance: [''],
+      distance: ['', Validators.required],
       units: ['mi', Validators.required],
-      minutes: ['', Validators.required],
+      minutes: ['', [Validators.required, Validators.min(0)]],
       seconds: ['', [Validators.min(0), Validators.max(60)]],
     });
   }
@@ -37,27 +54,25 @@ export class ConversionComponent implements OnInit {
   }
 
   handleSubmit(): void {
-    this.results = [];
-    const minutes: number = this.form.controls.minutes.value;
-    const seconds: number = this.form.controls.seconds.value;
+    if (this.form.valid) {
+      this.results = [];
+      this.units = this.form.controls.units.value;
 
-    if (!this.form.controls.distance.value) {
-      this.setDefaultValues(minutes, seconds);
+      this.setValues();
     }
   }
-  number;
 
-  setDefaultValues(minutes: number, seconds: number): void {
+  setValues(): void {
     const values: number[] =
-      'mi' === this.form.controls.units.value
-        ? this.miDistance
-        : this.kmDistances;
+      'mi' === this.units ? this.miDistance : this.kmDistances;
+
+    const baseTotal: number = this.totalSeconds / this.distance;
 
     values.forEach((distance: number) => {
       this.results.push({
         distance,
-        minutes,
-        seconds,
+        minutes: this.getMinutes(baseTotal * distance),
+        seconds: this.getSeconds(baseTotal * distance),
       });
     });
 
@@ -65,9 +80,26 @@ export class ConversionComponent implements OnInit {
     setTimeout(() => (this.dataSource.sort = this.sort), 0);
   }
 
+  getMinutes(total: number): number {
+    return Math.floor(total / 60);
+  }
+
+  getSeconds(total: number): number {
+    return Math.floor((total / 60 - this.getMinutes(total)) * 60);
+  }
+
   getName(el: Result): string {
-    return 'mi' === this.form.controls.units.value
-      ? `${el.distance} mi`
-      : `${el.distance} km`;
+    return 'mi' === this.units ? `${el.distance} mi` : `${el.distance} km`;
+  }
+
+  getMinuteDisplay(res: Result): string {
+    return res.minutes.toFixed(0);
+  }
+
+  getSecondDisplay(res: Result): string {
+    return res.seconds.toLocaleString('en-us', {
+      minimumIntegerDigits: 2,
+      maximumFractionDigits: 0,
+    });
   }
 }

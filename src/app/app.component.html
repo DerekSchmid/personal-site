@@ -1,30 +1,35 @@
 <mat-sidenav-container class="container">
   <mat-sidenav #sidenav
-               color="accent"
                mode="over"
                ngClass="w-20"
                ngClass.lt-md="w-50">
-    <div class="w-100"
-         fxLayout="column"
-         fxLayoutAlign="start center"
-         fxLayoutGap="5px">
+    <div class="drawer-header"
+         fxLayout="row"
+         fxLayoutAlign="start center">
+      <mat-icon fxFlexAlign="center"
+                color="accent"
+                class="menu drawer-icon"
+                (click)="sidenav.toggle()">close</mat-icon>
+    </div>
 
-      <a class="w-100"
-         [routerLink]="['/home']"
+    <div class="w-100 menu-button-container"
+         fxLayout="column"
+         fxLayoutAlign="start center">
+
+      <a [routerLink]="['/home']"
          (click)="sidenav.toggle();">
-        <button class="w-100"
-                mat-button
+        <button mat-menu-item
                 mat-raised-button
+                class="w-100"
                 color="accent">Home</button>
       </a>
 
-      <a class="w-100"
-         [routerLink]="['/conversion']"
+      <a [routerLink]="['/conversion']"
          (click)="sidenav.toggle()">
-        <button class="w-100"
-                mat-button
+        <button mat-menu-item
                 mat-raised-button
-                color="accent">Run Times</button>
+                class="w-100"
+                color="accent">Running</button>
       </a>
     </div>
   </mat-sidenav>
