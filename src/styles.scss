@@ -1,24 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
-@import '~@angular/material/theming';
-
-// import our custom theme
-@import 'my-theme.scss';
-
-// specify theme class eg: <body class="my-theme"> ... </body>
-.my-theme {
-  // use our theme with angular-material-theme mixin
-  @include angular-material-theme($my-theme);
-
-  .mat-drawer {
-    background: mat-color($background, background);
-  }
-}
+@import 'vars.scss';
 
 html,
 body {
   height: 100%;
   width: 100%;
   margin: 0;
+  background: $background-color;
 }
 
 .w-100 {

@@ -1,52 +1,5 @@
-<mat-sidenav-container class="container">
-  <mat-sidenav #sidenav
-               mode="over"
-               ngClass="w-20"
-               ngClass.lt-md="w-50">
-    <div class="drawer-header"
-         fxLayout="row"
-         fxLayoutAlign="start center">
-      <mat-icon fxFlexAlign="center"
-                color="accent"
-                class="menu drawer-icon"
-                (click)="sidenav.toggle()">close</mat-icon>
-    </div>
-
-    <div class="w-100 menu-button-container"
-         fxLayout="column"
-         fxLayoutAlign="start center">
-
-      <a [routerLink]="['/home']"
-         (click)="sidenav.toggle();">
-        <button mat-menu-item
-                mat-raised-button
-                class="w-100"
-                color="accent">Home</button>
-      </a>
-
-      <a [routerLink]="['/conversion']"
-         (click)="sidenav.toggle()">
-        <button mat-menu-item
-                mat-raised-button
-                class="w-100"
-                color="accent">Running</button>
-      </a>
-    </div>
-  </mat-sidenav>
-  <mat-sidenav-content class="sidenav-content">
-    <mat-toolbar color="primary">
-      <div class="w-100"
-           fxLayout="row"
-           fxLayoutAlign="space-between center">
-        <mat-icon fxFlexAlign="center"
-                  class="menu"
-                  (click)="sidenav.toggle()">menu</mat-icon>
-        <h1 fxFlexAlign="center">{{title}}</h1>
-        <div></div>
-      </div>
-    </mat-toolbar>
-    <div class="router">
-      <router-outlet></router-outlet>
-    </div>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<div class="header">
+    <img class="blocks"
+         src="assets/building.gif" />
+    <p class="title">Site currently under development...</p>
+</div>

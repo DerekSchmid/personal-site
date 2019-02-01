@@ -1,61 +1,26 @@
-.container {
-  min-height: 100%;
-  width: 100%;
-}
+@import '../vars.scss';
 
-.sidenav-content {
-  min-height: 100vh;
-}
+.header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 
-.menu {
-  cursor: pointer;
-  &.mat-icon {
-    font-size: 6vh !important;
-    height: 6vh !important;
-    width: 6vh !important;
+  .title {
+    margin-top: $app-padding;
+    color: $font-primary-color;
+    font-size: 2vw;
+    font-family: roboto;
+  }
+
+  .blocks {
+    margin-top: 20vh;
+    height: $block-size;
+    width: $block-size;
   }
 }
 
-.drawer-header {
-  padding-left: 16px;
-  height: 64px;
-}
-
-.router {
-  margin: 10px;
-}
-
-.mat-sidenav {
-  // background: $primary;
-  & a {
-    height: 10vh !important;
-
-    & button {
-      height: 10vh !important;
-      font-size: 4vh;
-      border-radius: 0;
-    }
-  }
-}
-
-.menu-button-container {
-  // margin-top: 20px;
-  & > a {
-    width: 100%;
-
-    & > button {
-      cursor: pointer;
-      border: none;
-      // border-bottom: 1px solid black;
-      text-align: start;
-      padding-left: 16px;
-      opacity: 0.8;
-
-      &:active,
-      &:hover {
-        border: none !important;
-        opacity: 1;
-      }
-    }
+@media only screen and (max-width: 900px) {
+  .title {
+    font-size: 4vw !important;
   }
 }

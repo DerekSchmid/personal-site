@@ -1,12 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { ServiceWorkerModule } from '@angular/service-worker';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { environment } from '../environments/environment.prod';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DataService } from './shared/services/data.service';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
@@ -15,12 +12,9 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    NoopAnimationsModule,
-    environment.production
-      ? ServiceWorkerModule.register('ngsw-worker.js')
-      : [],
+    BrowserAnimationsModule,
   ],
-  providers: [DataService],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,8 +1,4 @@
-import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
-
-import { takeWhile } from 'rxjs/operators';
-
-import { DataService } from './shared/services/data.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -10,19 +6,10 @@ import { DataService } from './shared/services/data.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit, OnDestroy {
-  title: string;
-  alive: boolean = true;
+  title: 'Derek Schmid';
+  alive = true;
 
-  constructor(public data: DataService, private cd: ChangeDetectorRef) {}
-
-  ngOnInit(): void {
-    this.data.title$.pipe(takeWhile(() => this.alive)).subscribe(value => {
-      this.title = value;
-      this.cd.detectChanges();
-    });
-
-    this.data.title$.next('Dev Site');
-  }
+  ngOnInit(): void {}
 
   ngOnDestroy(): void {
     this.alive = false;
