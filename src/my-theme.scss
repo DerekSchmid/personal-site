@@ -1,0 +1,9 @@
+// define 3 colors
+// mat-palette accepts $palette-name, main, lighter and darker variants
+$my-theme-primary: mat-palette($mat-blue, 500, 300, 700);
+$my-theme-accent: mat-palette($mat-cyan);
+$my-theme-warn: mat-palette($mat-deep-orange, A700);
+
+$my-theme: mat-light-theme($my-theme-primary, $my-theme-accent, $my-theme-warn);
+
+$background: map-get($my-theme, background);

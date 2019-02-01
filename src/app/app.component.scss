@@ -1,16 +1,25 @@
 @import '../vars.scss';
 
+.profile {
+  border-radius: 50%;
+  height: 90%;
+}
+
+.header-link-container {
+  display: flex;
+  flex-direction: row;
+
+  a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: white;
+  }
+}
+
 .header {
   display: flex;
   align-items: center;
   flex-direction: column;
-
-  .title {
-    margin-top: $app-padding;
-    color: $font-primary-color;
-    font-size: 2vw;
-    font-family: roboto;
-  }
 
   .blocks {
     margin-top: 20vh;
@@ -21,6 +30,10 @@
 
 @media only screen and (max-width: 900px) {
   .title {
-    font-size: 4vw !important;
+    font-size: 4vw;
+  }
+
+  p {
+    font-size: 2.5vw;
   }
 }

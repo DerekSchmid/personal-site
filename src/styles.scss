@@ -1,11 +1,28 @@
-@import 'vars.scss';
+@import '~@angular/material/theming';
+
+// include once per project
+@include mat-core();
+
+// import custom theme
+@import 'my-theme.scss';
+
+.my-theme {
+  @include angular-material-theme($my-theme);
+}
 
 html,
 body {
   height: 100%;
   width: 100%;
   margin: 0;
-  background: $background-color;
+}
+
+.mg-l-20 {
+  margin-left: 20px;
+}
+
+.mg-t-20 {
+  margin-top: 20px;
 }
 
 .w-100 {
